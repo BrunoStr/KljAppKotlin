@@ -4,34 +4,19 @@
       tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-                android:id="@+id/nav_camera"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Import"/>
+        <item android:title="Home" android:id="@+id/nav_home" android:icon="@drawable/home"/>
+        <item android:title="Kalender" android:id="@+id/nav_calendar" android:icon="@drawable/calendar"/>
         <item
                 android:id="@+id/nav_gallery"
                 android:icon="@drawable/ic_menu_gallery"
-                android:title="Gallery"/>
-        <item
-                android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Slideshow"/>
-        <item
-                android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Tools"/>
+                android:title="Gallerij"/>
+        <item android:title="Survival" android:id="@+id/nav_survival" android:icon="@drawable/survival"/>
+        <item android:title="Drankenlijst" android:id="@+id/nav_drankenLijst" android:icon="@drawable/money"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Communicatie">
         <menu>
-            <item
-                    android:id="@+id/nav_share"
-                    android:icon="@drawable/ic_menu_share"
-                    android:title="Share"/>
-            <item
-                    android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="Send"/>
+            <item android:title="Contact" android:id="@+id/nav_contact" android:icon="@drawable/contact"/>
         </menu>
     </item>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KljVissenakenApp</string>
+    <string name="app_name">Klj Vissenaken</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -7,5 +7,30 @@
     <!--NAV BAR STRINGS-->
     <string name="nav_header_title">KLJ Vissenaken</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+
+    <!--HOME SCREEN STRINGS-->
+    <string name="home_title">Home</string>
+    <string name="home_text">Welkom bij KLJ Vissenaken!</string>
+
+
+    <!--CALENDAR SCREEN STRINGS-->
+    <string name="calendar_title">Kalender</string>
+    <string name="calendar_text">Welkom Op de Kalender Pagina!</string>
+
+    <!--GALLERY SCREEN STRINGS-->
+    <string name="gallery_title">Gallerij</string>
+    <string name="gallery_text">Welkom Op de Gallerij Pagina!</string>
+
+    <!--SURVIVAL SCREEN STRINGS-->
+    <string name="survival_title">Survival</string>
+    <string name="survival_text">Welkom Op de Survival Pagina!</string>
+
+    <!--DRANKENLIJST SCREEN STRINGS-->
+    <string name="drank_title">Drankenlijst</string>
+    <string name="drank_text">Welkom Op de Drankenlijst Pagina!</string>
+
+    <!--CONTACT SCREEN STRINGS-->
+    <string name="contact_title">Contact</string>
+    <string name="contact_text">Welkom Op de Contact Pagina!</string>
+
 </resources>

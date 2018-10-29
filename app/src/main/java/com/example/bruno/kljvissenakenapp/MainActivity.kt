@@ -1,5 +1,6 @@
 package com.example.bruno.kljvissenakenapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -25,6 +26,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        //We roepen deze methode op zodat hij standaard naar HomeFragment zal gaan bij het opstarten van de MainActivity
+        displaySelectedScreen(-1)
     }
 
     override fun onBackPressed() {
@@ -50,28 +54,43 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-        when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
-            }
-            R.id.nav_gallery -> {
 
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
-            }
-        }
+        displaySelectedScreen(item.itemId)
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun displaySelectedScreen(id: Int){
+        val fragment = when(id){
+            R.id.nav_home -> {
+                HomeFragment()
+            }
+            R.id.nav_calendar -> {
+                CalendarFragment()
+            }
+            R.id.nav_gallery -> {
+                GalleryFragment()
+            }
+            R.id.nav_survival -> {
+                SurvivalFragment()
+            }
+            R.id.nav_drankenLijst -> {
+                DrankenlijstFragment()
+            }
+            R.id.nav_contact -> {
+                ContactFragment()
+            }
+            else -> {
+                //By default display HomeFragment
+                HomeFragment()
+            }
+        }
+
+        //Hier zal de correcte fragment gepusht worden naar de fragmentLayout in content_main.xml
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentLayout, fragment)
+            .commit()
+
     }
 }
