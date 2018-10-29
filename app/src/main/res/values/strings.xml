@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">KljVissenakenApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <!--NAV BAR STRINGS-->
+    <string name="nav_header_title">KLJ Vissenaken</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+</resources>
