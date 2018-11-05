@@ -10,7 +10,15 @@
 
     <!--HOME SCREEN STRINGS-->
     <string name="home_title">Home</string>
-    <string name="home_text">Welkom bij KLJ Vissenaken!</string>
+    <string name="home_text">Welkom op de app van KLJ Vissenaken!</string>
+    <string name="home_title_par1">Wie zijn we?</string>
+    <string name="home_text_par1">
+        KLJ Vissenaken is een jeugdbeweging die zich vrijwillig met de jeugd van Vissenaken en omstreken bezighoudt.
+        Wij staan in voor beweging en recreatie voor de kinderen met de bedoeling om ze samen te brengen en een leuke sfeer
+        te creëren in ons dorp! Tijdens de activiteiten houdt de leiding een oogje in het zeil en zorgt ervoor dat de leden niets
+        te kort komen.
+
+    </string>
 
 
     <!--CALENDAR SCREEN STRINGS-->
