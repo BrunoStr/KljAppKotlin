@@ -1,5 +1,6 @@
 package com.example.bruno.kljvissenakenapp
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -9,8 +10,11 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
+import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.dialog_info.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -49,7 +53,34 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return true
+        val id = item.itemId
+
+        if(id == 2131230737){
+            showInfoDialog()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showInfoDialog(){
+        var closeIcon:ImageView
+        var infoImg:ImageView
+        var myDialog = Dialog(this)
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        myDialog.setContentView(R.layout.dialog_info)
+
+        closeIcon = myDialog.findViewById(R.id.closeIcon)
+        infoImg = myDialog.findViewById(R.id.infoImg)
+
+        closeIcon.setImageResource(R.drawable.close_grey)
+        infoImg.setImageResource(R.drawable.info_grey)
+
+        closeIcon.setOnClickListener(){
+            myDialog.cancel()
+        }
+
+        myDialog.show()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -61,7 +92,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    private fun displaySelectedScreen(id: Int){
+    fun displaySelectedScreen(id: Int){
         val fragment = when(id){
             R.id.nav_home -> {
                 HomeFragment()

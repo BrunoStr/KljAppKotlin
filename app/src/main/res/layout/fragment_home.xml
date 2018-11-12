@@ -29,30 +29,31 @@
     </LinearLayout>
     <ScrollView
             android:layout_width="395dp"
-            android:layout_height="466dp"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
             <Button
                     android:text="Kalender"
                     android:layout_width="match_parent"
                     android:layout_height="200dp" tools:layout_editor_absoluteY="283dp"
-                    tools:layout_editor_absoluteX="154dp" android:id="@+id/button2"/>
+                    tools:layout_editor_absoluteX="154dp" android:id="@+id/kalenderBtn"/>
             <Button
                     android:text="Gallerij"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" android:id="@+id/button3"/>
+                    android:layout_height="200dp" android:id="@+id/gallerijBtn"/>
             <Button
                     android:text="Survival Gids"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" android:id="@+id/button6"/>
+                    android:layout_height="200dp" android:id="@+id/survivalBtn"/>
             <Button
                     android:text="Drankenlijst"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" android:id="@+id/button7"/>
+                    android:layout_height="200dp" android:id="@+id/drankenBtn"/>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
