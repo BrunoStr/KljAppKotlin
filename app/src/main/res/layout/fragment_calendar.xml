@@ -29,7 +29,8 @@
             app:layout_constraintStart_toStartOf="parent"
             android:textAlignment="center" android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/compactCalendarView" android:text="Textview"
-            android:gravity="center_vertical" android:background="#9cc24c" android:textColor="@android:color/white"/>
+            android:gravity="center_vertical" android:background="#9cc24c" android:textColor="@android:color/white"
+            android:textStyle="bold"/>
     <TextView
             android:text="TextView"
             android:layout_width="0dp"

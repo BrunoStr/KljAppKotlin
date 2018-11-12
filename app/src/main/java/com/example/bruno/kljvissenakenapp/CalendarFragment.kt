@@ -25,7 +25,6 @@ import java.time.ZoneId.systemDefault
 class CalendarFragment:Fragment(){
 
     lateinit var calendar: CompactCalendarView
-    val dateFormatMonth = SimpleDateFormat("MMMM- yyyy", Locale.getDefault())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.setTitle(R.string.calendar_title)
@@ -48,7 +47,7 @@ class CalendarFragment:Fragment(){
         calendar.setEventIndicatorStyle(2)
 
         //Set up an event in calendar
-        //TimeinMillis: datum die omgevormd is in miliSeconden
+        //TimeinMillis: datum die omgevormd is in miliSeconden   EPOCH CONVERTER.COM
         var event1 = Event(Color.BLUE,1542485810000,"Vandaag is de eerste KLJ activiteit!")
         calendar.addEvent(event1)
 
