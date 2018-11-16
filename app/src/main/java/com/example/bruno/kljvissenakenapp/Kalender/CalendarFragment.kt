@@ -68,6 +68,49 @@ class CalendarFragment:Fragment(){
                 "+12","18/11/2018","17:00", "20:00"))
         calendar.addEvent(event3)
 
+        //Checken of er op de huidige dag activiteiten zijn
+        if(compactCalendarView.getEvents(Calendar.getInstance().time).isEmpty()){
+            tabHost.clearAllTabs()
+
+            actiNaam = "Geen activiteit vandaag..."
+            actiDatum = ""
+            actiStartUur = ""
+            actiEindUur = ""
+            actiOmschrijving = ""
+
+
+            var tab1 = tabHost.newTabSpec("Tab")
+            tab1.setIndicator("😪")
+            tab1.setContent(MyTabContentFactory())
+            tabHost.addTab(tab1)
+
+            var gegevensTxt = view.findViewById<LinearLayout>(R.id.gegevensTxt)
+            var omschrijvingTxt = view.findViewById<TextView>(R.id.omschrijvingTxt)
+
+            //Bugfix door gebruik te maken van if statement...
+            if(gegevensTxt.visibility == View.VISIBLE){
+                gegevensTxt.visibility = View.GONE
+                omschrijvingTxt.visibility = View.GONE
+            }
+
+        }
+        else{
+            tabHost.clearAllTabs()
+
+            for (item in compactCalendarView.getEvents(Calendar.getInstance().time)){
+                actiNaam = (item.data as Activiteit).naam
+                actiDatum = (item.data as Activiteit).datum
+                actiStartUur = "${(item.data as Activiteit).startUur} Uur"
+                actiEindUur = "${(item.data as Activiteit).eindUur} Uur"
+                actiOmschrijving = (item.data as Activiteit).omschrijving
+
+                val tab1 = tabHost.newTabSpec("Tab_Name")
+                tab1.setIndicator((item.data as Activiteit).leeftijdsgroep)
+                tab1.setContent(MyTabContentFactory())
+                tabHost.addTab(tab1)
+
+            }
+        }
 
         compactCalendarView.setListener(object : CompactCalendarView.CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date) {
@@ -102,6 +145,7 @@ class CalendarFragment:Fragment(){
                     tabHost.clearAllTabs()
 
                     for (item in events){
+                        println(item.data)
                         actiNaam = (item.data as Activiteit).naam
                         actiDatum = (item.data as Activiteit).datum
                         actiStartUur = "${(item.data as Activiteit).startUur} Uur"

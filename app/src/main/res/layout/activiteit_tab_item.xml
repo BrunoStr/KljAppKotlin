@@ -58,5 +58,6 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="100dp" android:id="@+id/omschrijvingActiviteit" android:textAlignment="center"
-            tools:text="omschrijving" android:paddingTop="10dp"/>
+            tools:text="omschrijving" android:paddingTop="10dp" android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 </LinearLayout>
