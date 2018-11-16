@@ -1,25 +1,19 @@
-package com.example.bruno.kljvissenakenapp
+package com.example.bruno.kljvissenakenapp.Kalender
 
-import android.content.ContentValues.TAG
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CalendarView
 import android.widget.TextView
-import android.widget.Toast
+import com.example.bruno.kljvissenakenapp.R
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import com.github.sundeepk.compactcalendarview.domain.Event
 import kotlinx.android.synthetic.main.fragment_calendar.*
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
-import java.time.ZoneId
 import java.util.*
-import java.time.ZoneId.systemDefault
-
 
 
 class CalendarFragment:Fragment(){
@@ -44,15 +38,25 @@ class CalendarFragment:Fragment(){
 
         //instellen calendar
         calendar = view.findViewById(R.id.compactCalendarView) as CompactCalendarView
-        calendar.setEventIndicatorStyle(2)
+        calendar.setEventIndicatorStyle(3)
 
         //Set up an event in calendar
         //TimeinMillis: datum die omgevormd is in miliSeconden   EPOCH CONVERTER.COM
-        var event1 = Event(Color.BLUE,1542485810000,"Vandaag is de eerste KLJ activiteit!")
+        var event1 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("17/11/2018"),
+            Activiteit("Dropping","Maak je klaar voor een super uitdagende dropping vandaag! Lukt het jouw groep om als eerste de eindstreep de halen?",
+                "+16","17/11/2018","18:00", "21:00"))
         calendar.addEvent(event1)
 
-        var event2 = Event(Color.BLUE,1542572210000, "De tweede activiteit gaat van start vandaag!")
+        var event2 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("18/11/2018"),
+            Activiteit("Pleinspelen", "Kom vandaag samen met je vriendjes naar de KLJ en ontdek de allerleukste spelletjes! Plezier gegarandeerd!",
+                "-12","18/11/2018", "14:00", "18:00"))
         calendar.addEvent(event2)
+
+        var event3 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("18/11/2018"),
+            Activiteit("HoneyMoon", "Haal je beste flirttechnieken boven en schop het tot beste koppel van de avond!",
+                "+12","18/11/2018","17:00", "20:00"))
+        calendar.addEvent(event3)
+
 
         compactCalendarView.setListener(object : CompactCalendarView.CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date) {
@@ -63,7 +67,8 @@ class CalendarFragment:Fragment(){
                 }
                 else{
                     for (item in events){
-                        activiteitTxt.text = item.data.toString()
+                        println("DE NAAM IS "+(item.data as Activiteit).naam)
+                        activiteitTxt.text = (item.data as Activiteit).naam
                     }
                 }
             }
@@ -90,4 +95,11 @@ class CalendarFragment:Fragment(){
        val year = cal.get(Calendar.YEAR)
        return "${monthName} ${year}"
     }
+
+    private fun convertDateToMillis(datum:String):Long{
+        var sdf = SimpleDateFormat("dd/MM/yyyy")
+        var date = sdf.parse(datum)
+        return date.time
+    }
+
 }
