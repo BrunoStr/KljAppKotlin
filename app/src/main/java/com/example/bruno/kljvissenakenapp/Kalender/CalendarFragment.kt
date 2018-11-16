@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.bruno.kljvissenakenapp.R
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
@@ -14,11 +15,19 @@ import kotlinx.android.synthetic.main.fragment_calendar.*
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
+import android.widget.TabHost
+import android.widget.TabHost.TabContentFactory
+import kotlinx.android.synthetic.main.activiteit_tab_item.*
 
 
 class CalendarFragment:Fragment(){
 
     lateinit var calendar: CompactCalendarView
+    var actiNaam:String = ""
+    var actiDatum:String = ""
+    var actiStartUur:String = ""
+    var actiEindUur:String = ""
+    var actiOmschrijving:String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.setTitle(R.string.calendar_title)
@@ -30,11 +39,13 @@ class CalendarFragment:Fragment(){
 
         //TextView die naam van de maand weergeeft
         var monthTxt:TextView = view.findViewById(R.id.monthTxt)
-        //TextView die gegevens van de activiteit weergeeft
-        var activiteitTxt:TextView = view.findViewById(R.id.activiteitTxt)
 
+        //Tab systeem die gegevens van de activiteiten weergeeft
+        var tabHost:TabHost = view.findViewById(R.id.tabHost)
+        tabHost.setup()
+
+        //Naam van de maand weergeven
         monthTxt.text = getHuidigeMaand()
-        activiteitTxt.text = ""
 
         //instellen calendar
         calendar = view.findViewById(R.id.compactCalendarView) as CompactCalendarView
@@ -63,12 +74,45 @@ class CalendarFragment:Fragment(){
                 val events = compactCalendarView.getEvents(dateClicked)
 
                 if(events.isEmpty()){
-                    activiteitTxt.text = "Op deze dag vindt er geen activiteit plaats"
+                    tabHost.clearAllTabs()
+
+                    actiNaam = "Geen activiteit vandaag..."
+                    actiDatum = ""
+                    actiStartUur = ""
+                    actiEindUur = ""
+                    actiOmschrijving = ""
+
+
+                    var tab1 = tabHost.newTabSpec("Tab")
+                    tab1.setIndicator("😪")
+                    tab1.setContent(MyTabContentFactory())
+                    tabHost.addTab(tab1)
+
+                    var gegevensTxt = view.findViewById<LinearLayout>(R.id.gegevensTxt)
+                    var omschrijvingTxt = view.findViewById<TextView>(R.id.omschrijvingTxt)
+
+                    //Bugfix door gebruik te maken van if statement...
+                    if(gegevensTxt.visibility == View.VISIBLE){
+                        gegevensTxt.visibility = View.GONE
+                        omschrijvingTxt.visibility = View.GONE
+                    }
+
                 }
                 else{
+                    tabHost.clearAllTabs()
+
                     for (item in events){
-                        println("DE NAAM IS "+(item.data as Activiteit).naam)
-                        activiteitTxt.text = (item.data as Activiteit).naam
+                        actiNaam = (item.data as Activiteit).naam
+                        actiDatum = (item.data as Activiteit).datum
+                        actiStartUur = "${(item.data as Activiteit).startUur} Uur"
+                        actiEindUur = "${(item.data as Activiteit).eindUur} Uur"
+                        actiOmschrijving = (item.data as Activiteit).omschrijving
+
+                        val tab1 = tabHost.newTabSpec("Tab_Name")
+                        tab1.setIndicator((item.data as Activiteit).leeftijdsgroep)
+                        tab1.setContent(MyTabContentFactory())
+                        tabHost.addTab(tab1)
+
                     }
                 }
             }
@@ -100,6 +144,20 @@ class CalendarFragment:Fragment(){
         var sdf = SimpleDateFormat("dd/MM/yyyy")
         var date = sdf.parse(datum)
         return date.time
+    }
+
+    private inner class MyTabContentFactory : TabContentFactory {
+        override fun createTabContent(tag: String?): View {
+            val view = layoutInflater.inflate(R.layout.activiteit_tab_item, tabHost as ViewGroup, false)
+
+            view.findViewById<TextView>(R.id.naamActiviteit).text = actiNaam
+            view.findViewById<TextView>(R.id.datumActiviteit).text = actiDatum
+            view.findViewById<TextView>(R.id.startUurActiviteit).text = actiStartUur
+            view.findViewById<TextView>(R.id.eindUurActiviteit).text = actiEindUur
+            view.findViewById<TextView>(R.id.omschrijvingActiviteit).text = actiOmschrijving
+
+            return view
+        }
     }
 
 }
