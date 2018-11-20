@@ -11,7 +11,7 @@ import com.example.bruno.kljvissenakenapp.R
 
 class GalleryFragment:Fragment(){
 
-    var image_titles = mutableListOf("img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8")
+    var image_titles = mutableListOf("img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10")
 
     var image_ids = mutableListOf(R.drawable.pic1min,R.drawable.pic2min, R.drawable.pic3min, R.drawable.pic4min,
         R.drawable.pic5min, R.drawable.pic6min, R.drawable.pic7min, R.drawable.pic8min, R.drawable.pic9min, R.drawable.pic10min)
