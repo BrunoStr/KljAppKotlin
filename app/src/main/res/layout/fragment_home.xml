@@ -25,16 +25,18 @@
                 android:layout_marginEnd="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
                 app:layout_constraintHorizontal_bias="0.706" tools:layout_editor_absoluteY="146dp"
-                android:textAlignment="center" android:paddingLeft="10dp" android:textColor="@android:color/black"/>
+                android:textAlignment="center" android:paddingLeft="10dp" android:textColor="@android:color/black"
+                android:textStyle="bold"/>
     </LinearLayout>
     <ScrollView
             android:layout_width="395dp"
-            android:layout_height="0dp"
+            android:layout_height="318dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp">
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintHorizontal_bias="0.0"
+            android:id="@+id/scrollView2">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
             <Button
@@ -42,18 +44,71 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp" tools:layout_editor_absoluteY="283dp"
                     tools:layout_editor_absoluteX="154dp" android:id="@+id/kalenderBtn"/>
-            <Button
-                    android:text="Gallerij"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp" android:id="@+id/gallerijBtn"/>
-            <Button
-                    android:text="Survival Gids"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp" android:id="@+id/survivalBtn"/>
+
             <Button
                     android:text="Drankenlijst"
                     android:layout_width="match_parent"
                     android:layout_height="200dp" android:id="@+id/drankenBtn"/>
         </LinearLayout>
     </ScrollView>
+    <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corner"
+            android:layout_width="395dp"
+            android:layout_height="139dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:visibility="visible" android:id="@+id/linearLayout2"
+            android:paddingTop="15dp" android:paddingLeft="10dp" android:paddingRight="10dp"
+            android:paddingBottom="15dp">
+        <TextView
+                android:text="Actuele weer in Vissenaken"
+                android:layout_width="match_parent"
+                android:layout_height="34dp" android:id="@+id/textView9" android:layout_weight="1"
+                android:textAlignment="center" android:textColor="@android:color/white"
+                android:textStyle="bold" android:textSize="18sp"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/weerLinearLayout"
+                android:visibility="visible">
+            <ImageView
+                    android:layout_width="136dp"
+                    android:layout_height="80dp" app:srcCompat="@mipmap/ic_launcher"
+                    android:id="@+id/weerIcon"
+                    android:layout_weight="1"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1" android:gravity="center">
+                <TextView
+                        android:text="Omschrijving"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" android:id="@+id/weerDescription" android:layout_weight="1"
+                        android:textAlignment="center" android:textColor="@android:color/white"/>
+                <TextView
+                        android:text="Temperatuur"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" android:id="@+id/weerTemp" android:layout_weight="1"
+                        android:textAlignment="center" android:textColor="@android:color/white"/>
+                <TextView
+                        android:text="Luchtvochtigheid"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" android:id="@+id/weerLuchtvocht" android:layout_weight="1"
+                        android:textAlignment="center" android:textColor="@android:color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:indeterminateTint="#cc3c27"
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:id="@+id/weerSpinner"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
 </android.support.constraint.ConstraintLayout>

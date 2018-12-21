@@ -12,9 +12,8 @@ import android.view.Window
 import android.widget.ImageView
 import com.example.bruno.kljvissenakenapp.Contact.ContactFragment
 import com.example.bruno.kljvissenakenapp.Dranken.DrankenlijstFragment
-import com.example.bruno.kljvissenakenapp.Gallerij.GalleryFragment
+import com.example.bruno.kljvissenakenapp.Home.HomeFragment
 import com.example.bruno.kljvissenakenapp.Kalender.CalendarFragment
-import com.example.bruno.kljvissenakenapp.Survival.SurvivalFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -102,12 +101,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_calendar -> {
                 CalendarFragment()
             }
-            R.id.nav_gallery -> {
-                GalleryFragment()
-            }
-            R.id.nav_survival -> {
-                SurvivalFragment()
-            }
+
             R.id.nav_drankenLijst -> {
                 DrankenlijstFragment()
             }
