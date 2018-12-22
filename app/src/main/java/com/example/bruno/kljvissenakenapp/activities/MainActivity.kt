@@ -1,6 +1,6 @@
-package com.example.bruno.kljvissenakenapp
+package com.example.bruno.kljvissenakenapp.activities
 
-import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -8,15 +8,15 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.Window
-import android.widget.ImageView
-import com.example.bruno.kljvissenakenapp.Contact.ContactFragment
-import com.example.bruno.kljvissenakenapp.Dranken.DrankenlijstFragment
-import com.example.bruno.kljvissenakenapp.Gallerij.GalleryFragment
-import com.example.bruno.kljvissenakenapp.Kalender.CalendarFragment
-import com.example.bruno.kljvissenakenapp.Survival.SurvivalFragment
+import com.example.bruno.kljvissenakenapp.fragments.Contact.ContactFragment
+import com.example.bruno.kljvissenakenapp.fragments.Dranken.DrankenlijstFragment
+import com.example.bruno.kljvissenakenapp.fragments.Home.HomeFragment
+import com.example.bruno.kljvissenakenapp.fragments.Kalender.CalendarFragment
+import com.example.bruno.kljvissenakenapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this, drawer_layout, toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
@@ -35,6 +37,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         //We roepen deze methode op zodat hij standaard naar HomeFragment zal gaan bij het opstarten van de MainActivity
         displaySelectedScreen(-1)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        val sharedPrefs = getSharedPreferences("weerPref", Context.MODE_PRIVATE)
+        val edit = sharedPrefs?.edit()
+        edit?.remove("weerOmschrijving")
+        edit?.remove("weerTemperatuur")
+        edit?.remove("weerLuchtvochtigheid")
+        edit?.remove("weerIcon")
+        edit?.apply()
     }
 
     override fun onBackPressed() {
@@ -55,35 +69,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
-
-        if(id == 2131230737){
-            showInfoDialog()
-            return true
-        }
 
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showInfoDialog(){
-        var closeIcon:ImageView
-        var infoImg:ImageView
-        var myDialog = Dialog(this)
-        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        myDialog.setContentView(R.layout.dialog_info)
-
-        closeIcon = myDialog.findViewById(R.id.closeIcon)
-        infoImg = myDialog.findViewById(R.id.infoImg)
-
-        closeIcon.setImageResource(R.drawable.close_grey)
-        infoImg.setImageResource(R.drawable.info_grey)
-
-        closeIcon.setOnClickListener(){
-            myDialog.cancel()
-        }
-
-        myDialog.show()
-    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
@@ -102,12 +91,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_calendar -> {
                 CalendarFragment()
             }
-            R.id.nav_gallery -> {
-                GalleryFragment()
-            }
-            R.id.nav_survival -> {
-                SurvivalFragment()
-            }
+
             R.id.nav_drankenLijst -> {
                 DrankenlijstFragment()
             }
@@ -126,4 +110,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .commit()
 
     }
+
 }

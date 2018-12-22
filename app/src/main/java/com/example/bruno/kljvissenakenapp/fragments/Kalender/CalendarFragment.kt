@@ -1,4 +1,4 @@
-package com.example.bruno.kljvissenakenapp.Kalender
+package com.example.bruno.kljvissenakenapp.fragments.Kalender
 
 import android.graphics.Color
 import android.os.Bundle
@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.TabHost
 import android.widget.TabHost.TabContentFactory
-import kotlinx.android.synthetic.main.activiteit_tab_item.*
 
 
 class CalendarFragment:Fragment(){
