@@ -15,8 +15,6 @@ import com.example.bruno.kljvissenakenapp.fragments.Kalender.CalendarFragment
 import com.example.bruno.kljvissenakenapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import android.net.NetworkInfo
-import android.net.ConnectivityManager
 
 
 
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onDestroy()
 
         val sharedPrefs = getSharedPreferences("weerPref", Context.MODE_PRIVATE)
-        var edit = sharedPrefs?.edit()
+        val edit = sharedPrefs?.edit()
         edit?.remove("weerOmschrijving")
         edit?.remove("weerTemperatuur")
         edit?.remove("weerLuchtvochtigheid")
