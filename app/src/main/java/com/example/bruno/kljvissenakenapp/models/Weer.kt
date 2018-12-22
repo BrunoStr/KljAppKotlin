@@ -1,4 +1,4 @@
-package com.example.bruno.kljvissenakenapp.fragments.Home
+package com.example.bruno.kljvissenakenapp.models
 
 class Weer(var time:Long, var summary:String, var icon:String, var precipIntensity:Double, var precipProbability:Double,
            var precipType:String, var temperature:Double, var apparentTemperature:Double, var dewPoint:Double, var humidity:Double,
@@ -7,6 +7,6 @@ class Weer(var time:Long, var summary:String, var icon:String, var precipIntensi
 
 }
 
-class TussenObject(var latitude :Double, var longitude:Double, var timezone:String, var currently:Weer, var offset:Int){
+class TussenObject(var latitude :Double, var longitude:Double, var timezone:String, var currently: Weer, var offset:Int){
 
 }
