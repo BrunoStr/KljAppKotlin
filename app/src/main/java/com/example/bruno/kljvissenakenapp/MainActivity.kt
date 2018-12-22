@@ -1,6 +1,7 @@
 package com.example.bruno.kljvissenakenapp
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -36,6 +37,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         displaySelectedScreen(-1)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        val sharedPrefs = getSharedPreferences("weerPref", Context.MODE_PRIVATE)
+        var edit = sharedPrefs?.edit()
+        edit?.remove("weerOmschrijving")
+        edit?.remove("weerTemperatuur")
+        edit?.remove("weerLuchtvochtigheid")
+        edit?.remove("weerIcon")
+        edit?.apply()
+    }
+
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -54,35 +67,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
-
-        if(id == 2131230737){
-            showInfoDialog()
-            return true
-        }
 
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showInfoDialog(){
-        var closeIcon:ImageView
-        var infoImg:ImageView
-        var myDialog = Dialog(this)
-        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        myDialog.setContentView(R.layout.dialog_info)
-
-        closeIcon = myDialog.findViewById(R.id.closeIcon)
-        infoImg = myDialog.findViewById(R.id.infoImg)
-
-        closeIcon.setImageResource(R.drawable.close_grey)
-        infoImg.setImageResource(R.drawable.info_grey)
-
-        closeIcon.setOnClickListener(){
-            myDialog.cancel()
-        }
-
-        myDialog.show()
-    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.

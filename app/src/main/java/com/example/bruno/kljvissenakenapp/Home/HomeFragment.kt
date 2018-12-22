@@ -1,5 +1,7 @@
 package com.example.bruno.kljvissenakenapp.Home
 
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -21,6 +23,65 @@ import org.jetbrains.anko.uiThread
 
 class HomeFragment:Fragment(){
 
+    var sharedPrefs:SharedPreferences?=null
+
+    override fun onResume() {
+        super.onResume()
+        println("----RESUME-----")
+
+        var weerOmschrijving = sharedPrefs?.getString("weerOmschrijving","")
+
+        //Checken of er Weer data in shared preferences zit, anders API aanspreken
+        if(weerOmschrijving!!.isNotEmpty()){
+            println("+++++Haalt uit shared Preferences++++++")
+            val weerTemperatuur = sharedPrefs?.getString("weerTemperatuur","")
+            val weerLuchtvochtigheid = sharedPrefs?.getString("weerLuchtvochtigheid","")
+            val weerImage = sharedPrefs?.getString("weerIcon","")
+
+            weerDescription.text = weerOmschrijving
+            weerTemp.text = "Temperatuur: ${weerTemperatuur}"
+            weerLuchtvocht.text = "Luchtvochtigheid: ${weerLuchtvochtigheid}"
+            val iconImg = resources.getIdentifier(weerImage, "drawable", activity?.packageName)
+            weerIcon.setImageResource(iconImg)
+
+            weerLinearLayout.visibility = View.VISIBLE
+            weerSpinner.visibility = View.GONE
+
+        }
+        else{
+            //Gegevens ophalen van de API
+            doAsync {
+                println("+++++Haalt data van API++++++")
+                FuelManager.instance.basePath = "https://api.darksky.net/forecast/15c85cb1f7684eaf136aeda46d68f9bf/50.835470,4.910570";
+                Fuel.get("?lang=nl&units=si&exclude=minutely,%20hourly,%20alerts,%20flags,%20daily")
+                    .responseJson { request, response, result ->
+
+                        val tussenObject = Klaxon().parse<TussenObject>(result.get().content)
+                        val weer = tussenObject!!.currently
+
+                        weerDescription.text = weer.summary
+                        weerTemp.text = "Temperatuur: ${weer.temperature.toInt()} °C"
+                        weerLuchtvocht.text = "Luchtvochtigheid: ${((weer.humidity)*100).toInt()} %"
+
+                        val img = weer.icon.replace("-","_",true)
+                        val iconImg = resources.getIdentifier(img, "drawable", activity?.packageName)
+                        weerIcon.setImageResource(iconImg)
+
+                        weerLinearLayout.visibility = View.VISIBLE
+                        weerSpinner.visibility = View.GONE
+
+                        //Data opslaan in sharedPreferences
+                        var edit = sharedPrefs?.edit()
+                        edit?.putString("weerOmschrijving",weer.summary)
+                        edit?.putString("weerTemperatuur",weer.temperature.toString())
+                        edit?.putString("weerLuchtvochtigheid",weer.humidity.toString())
+                        edit?.putString("weerIcon",img)
+                        edit?.apply()
+                    }
+
+            }
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.setTitle(R.string.home_title)
@@ -32,35 +93,7 @@ class HomeFragment:Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Gegevens ophalen van de API
-
-        doAsync {
-            FuelManager.instance.basePath = "https://api.darksky.net/forecast/15c85cb1f7684eaf136aeda46d68f9bf/50.835470,4.910570";
-            Fuel.get("?lang=nl&units=si&exclude=minutely,%20hourly,%20alerts,%20flags,%20daily")
-                .responseJson { request, response, result ->
-
-                println("+++++++++++++++DATA WERD OPGEHAALD++++++++++++++++++")
-
-                val tussenObject = Klaxon().parse<TussenObject>(result.get().content)
-                val weer = tussenObject!!.currently
-
-                weerDescription.text = weer.summary
-                weerTemp.text = "Temperatuur: ${weer.temperature.toInt()} °C"
-                weerLuchtvocht.text = "Luchtvochtigheid: ${((weer.humidity)*100).toInt()} %"
-
-                val img = weer.icon.replace("-","_",true)
-                val iconImg = resources.getIdentifier(img, "drawable", activity?.packageName)
-                weerIcon.setImageResource(iconImg)
-
-
-
-                weerLinearLayout.visibility = View.VISIBLE
-                weerSpinner.visibility = View.GONE
-            }
-
-        }
-
-
+       sharedPrefs = activity?.getSharedPreferences("weerPref", MODE_PRIVATE)
 
         logoImg.setImageResource(R.drawable.logo2)
 
