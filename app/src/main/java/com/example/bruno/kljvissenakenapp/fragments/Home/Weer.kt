@@ -1,4 +1,4 @@
-package com.example.bruno.kljvissenakenapp.Home
+package com.example.bruno.kljvissenakenapp.fragments.Home
 
 class Weer(var time:Long, var summary:String, var icon:String, var precipIntensity:Double, var precipProbability:Double,
            var precipType:String, var temperature:Double, var apparentTemperature:Double, var dewPoint:Double, var humidity:Double,

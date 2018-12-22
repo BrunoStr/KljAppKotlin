@@ -1,6 +1,5 @@
-package com.example.bruno.kljvissenakenapp
+package com.example.bruno.kljvissenakenapp.activities
 
-import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -9,14 +8,17 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.Window
-import android.widget.ImageView
-import com.example.bruno.kljvissenakenapp.Contact.ContactFragment
-import com.example.bruno.kljvissenakenapp.Dranken.DrankenlijstFragment
-import com.example.bruno.kljvissenakenapp.Home.HomeFragment
-import com.example.bruno.kljvissenakenapp.Kalender.CalendarFragment
+import com.example.bruno.kljvissenakenapp.fragments.Contact.ContactFragment
+import com.example.bruno.kljvissenakenapp.fragments.Dranken.DrankenlijstFragment
+import com.example.bruno.kljvissenakenapp.fragments.Home.HomeFragment
+import com.example.bruno.kljvissenakenapp.fragments.Kalender.CalendarFragment
+import com.example.bruno.kljvissenakenapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import android.net.NetworkInfo
+import android.net.ConnectivityManager
+
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,7 +28,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this, drawer_layout, toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
@@ -108,4 +112,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .commit()
 
     }
+
 }
