@@ -8,7 +8,6 @@ import android.view.*
 import com.beust.klaxon.Klaxon
 import com.example.bruno.kljvissenakenapp.activities.MainActivity
 import com.example.bruno.kljvissenakenapp.R
-import com.example.bruno.kljvissenakenapp.models.TussenObject
 import com.example.bruno.kljvissenakenapp.network.Connection
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.android.extension.responseJson
