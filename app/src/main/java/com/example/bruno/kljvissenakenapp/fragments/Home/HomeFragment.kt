@@ -3,21 +3,26 @@ package com.example.bruno.kljvissenakenapp.fragments.Home
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.*
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.beust.klaxon.Klaxon
 import com.example.bruno.kljvissenakenapp.activities.MainActivity
 import com.example.bruno.kljvissenakenapp.R
+import com.example.bruno.kljvissenakenapp.models.TussenObject
 import com.example.bruno.kljvissenakenapp.network.Connection
+import com.example.bruno.kljvissenakenapp.ui.LidViewModel
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.core.FuelManager
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.doAsync
 
-class HomeFragment:Fragment(){
+class HomeFragment: androidx.fragment.app.Fragment(){
 
     var sharedPrefs:SharedPreferences?=null
+    lateinit var lidViewModel:LidViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.setTitle(R.string.home_title)
@@ -28,6 +33,15 @@ class HomeFragment:Fragment(){
     //Deze methode is het equivalent van de OnCreate() methode in een activity
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lidViewModel = ViewModelProviders.of(activity!!).get(LidViewModel::class.java)
+        lidViewModel.getAll().observe(this, Observer {leden ->
+
+        println("JE LEDEN ZIJN: ")
+        println(leden[0].naam)
+        println(leden[1].naam)
+
+        })
 
         sharedPrefs = activity?.getSharedPreferences("weerPref", MODE_PRIVATE)
 
@@ -114,15 +128,13 @@ class HomeFragment:Fragment(){
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater!!.inflate(R.menu.fragment_home_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
-
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
-
     }
 
 }

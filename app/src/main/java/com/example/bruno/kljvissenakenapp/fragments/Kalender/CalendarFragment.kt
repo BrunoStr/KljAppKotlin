@@ -2,7 +2,7 @@ package com.example.bruno.kljvissenakenapp.fragments.Kalender
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +17,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.TabHost
 import android.widget.TabHost.TabContentFactory
+import com.example.bruno.kljvissenakenapp.models.Activiteit
 
 
-class CalendarFragment:Fragment(){
+class CalendarFragment: androidx.fragment.app.Fragment(){
 
     lateinit var calendar: CompactCalendarView
     var actiNaam:String = ""
@@ -53,18 +54,35 @@ class CalendarFragment:Fragment(){
         //Set up an event in calendar
         //TimeinMillis: datum die omgevormd is in miliSeconden   EPOCH CONVERTER.COM
         var event1 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("17/11/2018"),
-            Activiteit("Dropping","Maak je klaar voor een super uitdagende dropping vandaag! Lukt het jouw groep om als eerste de eindstreep de halen?",
-                "+16","17/11/2018","18:00", "21:00"))
+            Activiteit(
+                "Dropping",
+                "Maak je klaar voor een super uitdagende dropping vandaag! Lukt het jouw groep om als eerste de eindstreep de halen?",
+                "+16",
+                "17/11/2018",
+                "18:00",
+                "21:00"
+            )
+        )
         calendar.addEvent(event1)
 
         var event2 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("18/11/2018"),
-            Activiteit("Pleinspelen", "Kom vandaag samen met je vriendjes naar de KLJ en ontdek de allerleukste spelletjes! Plezier gegarandeerd!",
-                "-12","18/11/2018", "14:00", "18:00"))
+            Activiteit(
+                "Pleinspelen",
+                "Kom vandaag samen met je vriendjes naar de KLJ en ontdek de allerleukste spelletjes! Plezier gegarandeerd!",
+                "-12",
+                "18/11/2018",
+                "14:00",
+                "18:00"
+            )
+        )
         calendar.addEvent(event2)
 
         var event3 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("18/11/2018"),
-            Activiteit("HoneyMoon", "Haal je beste flirttechnieken boven en schop het tot beste koppel van de avond!",
-                "+12","18/11/2018","17:00", "20:00"))
+            Activiteit(
+                "HoneyMoon", "Haal je beste flirttechnieken boven en schop het tot beste koppel van de avond!",
+                "+12", "18/11/2018", "17:00", "20:00"
+            )
+        )
         calendar.addEvent(event3)
 
         //Checken of er op de huidige dag activiteiten zijn
