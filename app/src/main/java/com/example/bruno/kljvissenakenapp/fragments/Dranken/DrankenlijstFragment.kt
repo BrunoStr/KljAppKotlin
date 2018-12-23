@@ -1,15 +1,10 @@
 package com.example.bruno.kljvissenakenapp.fragments.Dranken
 
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,13 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bruno.kljvissenakenapp.R
 import com.example.bruno.kljvissenakenapp.adapters.LidAdapter
 import com.example.bruno.kljvissenakenapp.dialog.AddLidDialog
+import com.example.bruno.kljvissenakenapp.models.Lid
 import com.example.bruno.kljvissenakenapp.ui.LidViewModel
-import kotlinx.android.synthetic.main.dialog_add_lid.*
 import kotlinx.android.synthetic.main.fragment_drankenlijst.*
 
-class DrankenlijstFragment: androidx.fragment.app.Fragment(){
+class DrankenlijstFragment: androidx.fragment.app.Fragment(), AddLidDialog.LidDialogListener {
 
     lateinit var lidViewModel: LidViewModel
+    var teller = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.setTitle(R.string.drank_title)
@@ -52,12 +48,24 @@ class DrankenlijstFragment: androidx.fragment.app.Fragment(){
             openDialog()
         }
 
+
     }
 
     fun openDialog(){
 
         val dialog = AddLidDialog()
         dialog.show(activity!!.supportFragmentManager,"lid dialog")
+        dialog.setTargetFragment(this ,1)
 
+    }
+
+    //In deze methode krijgt de fragment de strings vanuit de dialog en kan ermee werken
+    override fun applyTexts(naam: String, bedrag: String, omschrijving: String) {
+        println("IN DE FRAGMENT")
+        val bedragDouble = bedrag.toDouble()
+        val lid = Lid(0,naam,bedragDouble,omschrijving)
+        lidViewModel.insert(lid)
+        Toast.makeText(activity!!.applicationContext, "Schuld werd opgeslagen", Toast.LENGTH_SHORT).show()
+        teller++
     }
 }

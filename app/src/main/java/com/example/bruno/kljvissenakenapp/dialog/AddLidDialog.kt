@@ -3,19 +3,18 @@ package com.example.bruno.kljvissenakenapp.dialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
-import android.net.sip.SipAudioCall
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.DialogFragment
 import com.example.bruno.kljvissenakenapp.R
-import com.example.bruno.kljvissenakenapp.activities.MainActivity
-import kotlinx.android.synthetic.main.dialog_add_lid.*
+import com.example.bruno.kljvissenakenapp.models.Lid
+import java.lang.ClassCastException
+
 
 class AddLidDialog: DialogFragment() {
 
-    lateinit var dialogListener: SipAudioCall.Listener
+    lateinit var dialogListener: LidDialogListener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
        val builder =  AlertDialog.Builder(activity!!.themedContext)
@@ -39,12 +38,11 @@ class AddLidDialog: DialogFragment() {
                     val bedrag = view.findViewById<EditText>(R.id.editBedragTxt).text.toString()
                     val omschrijving = view.findViewById<EditText>(R.id.editOmschrijvingTxt).text.toString()
 
+                   dialogListener.applyTexts(naam, bedrag, omschrijving)
 
                    println("+++++++++++")
                    println("${naam},${bedrag},${omschrijving}")
                    println("+++++++++++")
-
-
 
                }
            })
@@ -52,13 +50,24 @@ class AddLidDialog: DialogFragment() {
         return builder.create()
     }
 
-    /*
+    interface LidDialogListener{
+        fun applyTexts(naam:String, bedrag:String, omschrijving:String)
+    }
+
+
     override fun onAttach(context: Context) {
+
+        try {
+            dialogListener = targetFragment as LidDialogListener
+        } catch (e: ClassCastException) {
+            throw ClassCastException(context.toString() + "must implement LidDialogListenerZZZ")
+        }
+
         super.onAttach(context)
 
-        dialogListener = context as
+
 
     }
-    */
+
 
 }
