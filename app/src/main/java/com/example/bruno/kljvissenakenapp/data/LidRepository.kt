@@ -1,11 +1,20 @@
 package com.example.bruno.kljvissenakenapp.data
 
+import android.app.Application
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.example.bruno.kljvissenakenapp.models.Lid
 
-class LidRepository(private val lidDao: LidDao) {
-    val leden:LiveData<List<Lid>> = lidDao.getAll()
+class LidRepository {
+    val lidDao:LidDao
+    val leden:LiveData<List<Lid>>
+
+
+    constructor(application: Application){
+        val lidDatabase = LidDatabase.getInstance(application)
+        lidDao = lidDatabase.lidDao()
+        leden = lidDao.getAll()
+    }
 
     @WorkerThread
     fun insert(lid:Lid){
