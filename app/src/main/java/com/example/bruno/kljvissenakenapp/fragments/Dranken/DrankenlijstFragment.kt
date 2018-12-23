@@ -1,12 +1,12 @@
 package com.example.bruno.kljvissenakenapp.fragments.Dranken
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bruno.kljvissenakenapp.R
@@ -23,6 +23,7 @@ class DrankenlijstFragment: androidx.fragment.app.Fragment(), AddLidDialog.LidDi
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.setTitle(R.string.drank_title)
+        setHasOptionsMenu(true)
         return inflater?.inflate(R.layout.fragment_drankenlijst, null)
     }
 
@@ -42,6 +43,22 @@ class DrankenlijstFragment: androidx.fragment.app.Fragment(), AddLidDialog.LidDi
             adapter.setLeden(leden)
 
         })
+
+        ItemTouchHelper(object: ItemTouchHelper.SimpleCallback(0,
+            ItemTouchHelper.LEFT){
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                //GetLidAt() toegevoegd aan de adapter class
+                //viewholder heeft de position van de gewenste cell
+                lidViewModel.delete(adapter.getLidAt(viewHolder.adapterPosition))
+                Toast.makeText(activity!!.applicationContext, "Schuld werd verwijderd", Toast.LENGTH_SHORT).show()
+            }
+
+        }).attachToRecyclerView(recycler)
+
 
         addLidBtn.setOnClickListener {
             println("Floating button clicked...")
@@ -67,5 +84,21 @@ class DrankenlijstFragment: androidx.fragment.app.Fragment(), AddLidDialog.LidDi
         lidViewModel.insert(lid)
         Toast.makeText(activity!!.applicationContext, "Schuld werd opgeslagen", Toast.LENGTH_SHORT).show()
         teller++
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        val menuInflater = activity!!.menuInflater
+        menuInflater.inflate(R.menu.delete_leden_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.deleteAllBtn -> {
+                lidViewModel.deleteAll()
+                Toast.makeText(activity!!.applicationContext,"Alle schulden verwijderd", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }

@@ -34,6 +34,10 @@ class LidAdapter:RecyclerView.Adapter<LidViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun getLidAt(pos:Int):Lid{
+        return leden.get(pos)
+    }
+
 
 }
 
