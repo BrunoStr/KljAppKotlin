@@ -1,0 +1,73 @@
+package com.example.bruno.kljvissenakenapp.dialog
+
+import android.app.Dialog
+import android.content.Context
+import android.content.DialogInterface
+import android.os.Bundle
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.DialogFragment
+import com.example.bruno.kljvissenakenapp.R
+import com.example.bruno.kljvissenakenapp.models.Lid
+import java.lang.ClassCastException
+
+
+class AddLidDialog: DialogFragment() {
+
+    lateinit var dialogListener: LidDialogListener
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+       val builder =  AlertDialog.Builder(activity!!.themedContext)
+
+       val inflater = activity!!.layoutInflater
+       val view = inflater.inflate(R.layout.dialog_add_lid, null)
+
+
+       builder.setView(view)
+           .setTitle("Voeg nieuwe Schuld toe")
+           .setNegativeButton("Cancel", object : DialogInterface.OnClickListener{
+               override fun onClick(dialog: DialogInterface?, which: Int) {
+
+               }
+
+           })
+           .setPositiveButton("Opslaan", object : DialogInterface.OnClickListener {
+               override fun onClick(dialog: DialogInterface?, which: Int) {
+
+                    val naam = view.findViewById<EditText>(R.id.editNameTxt).text.toString()
+                    val bedrag = view.findViewById<EditText>(R.id.editBedragTxt).text.toString()
+                    val omschrijving = view.findViewById<EditText>(R.id.editOmschrijvingTxt).text.toString()
+
+                   dialogListener.applyTexts(naam, bedrag, omschrijving)
+
+                   println("+++++++++++")
+                   println("${naam},${bedrag},${omschrijving}")
+                   println("+++++++++++")
+
+               }
+           })
+
+        return builder.create()
+    }
+
+    interface LidDialogListener{
+        fun applyTexts(naam:String, bedrag:String, omschrijving:String)
+    }
+
+
+    override fun onAttach(context: Context) {
+
+        try {
+            dialogListener = targetFragment as LidDialogListener
+        } catch (e: ClassCastException) {
+            throw ClassCastException(context.toString() + "must implement LidDialogListenerZZZ")
+        }
+
+        super.onAttach(context)
+
+
+
+    }
+
+
+}

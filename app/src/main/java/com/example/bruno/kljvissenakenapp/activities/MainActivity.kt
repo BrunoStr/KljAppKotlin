@@ -14,6 +14,8 @@ import com.example.bruno.kljvissenakenapp.fragments.Dranken.DrankenlijstFragment
 import com.example.bruno.kljvissenakenapp.fragments.Home.HomeFragment
 import com.example.bruno.kljvissenakenapp.fragments.Kalender.CalendarFragment
 import com.example.bruno.kljvissenakenapp.R
+import com.example.bruno.kljvissenakenapp.dialog.AddLidDialog
+import com.example.bruno.kljvissenakenapp.dialog.AddLidDialog.LidDialogListener
 import com.example.bruno.kljvissenakenapp.ui.LidViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*

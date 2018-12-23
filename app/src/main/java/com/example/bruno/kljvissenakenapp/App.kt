@@ -5,7 +5,7 @@ import com.example.bruno.kljvissenakenapp.injection.DatabaseComponent
 import com.example.bruno.kljvissenakenapp.injection.DaggerDatabaseComponent
 import com.example.bruno.kljvissenakenapp.injection.DatabaseModule
 
-
+//Deze class is voor Dagger
 class App: Application() {
 
     companion object {
