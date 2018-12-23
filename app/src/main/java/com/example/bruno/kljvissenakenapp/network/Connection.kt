@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.net.NetworkInfo
 import android.net.ConnectivityManager
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 // source: https://stackoverflow.com/questions/51141970/check-internet-connectivity-android-in-kotlin
 

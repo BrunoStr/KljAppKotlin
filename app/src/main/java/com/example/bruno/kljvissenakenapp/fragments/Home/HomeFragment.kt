@@ -3,7 +3,7 @@ package com.example.bruno.kljvissenakenapp.fragments.Home
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.*
 import com.beust.klaxon.Klaxon
 import com.example.bruno.kljvissenakenapp.activities.MainActivity
@@ -16,7 +16,7 @@ import com.github.kittinunf.fuel.core.FuelManager
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.doAsync
 
-class HomeFragment:Fragment(){
+class HomeFragment: androidx.fragment.app.Fragment(){
 
     var sharedPrefs:SharedPreferences?=null
 
@@ -115,6 +115,7 @@ class HomeFragment:Fragment(){
     }
 
 
+    /*
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater!!.inflate(R.menu.fragment_home_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -125,5 +126,6 @@ class HomeFragment:Fragment(){
         return super.onOptionsItemSelected(item)
 
     }
+    */
 
 }
