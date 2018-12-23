@@ -5,11 +5,13 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.*
+import androidx.lifecycle.ViewModelProviders
 import com.beust.klaxon.Klaxon
 import com.example.bruno.kljvissenakenapp.activities.MainActivity
 import com.example.bruno.kljvissenakenapp.R
 import com.example.bruno.kljvissenakenapp.models.TussenObject
 import com.example.bruno.kljvissenakenapp.network.Connection
+import com.example.bruno.kljvissenakenapp.ui.LidViewModel
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.core.FuelManager
@@ -19,6 +21,7 @@ import org.jetbrains.anko.doAsync
 class HomeFragment: androidx.fragment.app.Fragment(){
 
     var sharedPrefs:SharedPreferences?=null
+    lateinit var lidViewModel:LidViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.setTitle(R.string.home_title)

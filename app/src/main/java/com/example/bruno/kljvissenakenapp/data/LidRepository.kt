@@ -5,16 +5,10 @@ import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.example.bruno.kljvissenakenapp.models.Lid
 
-class LidRepository {
-    val lidDao:LidDao
-    val leden:LiveData<List<Lid>>
+class LidRepository(private val lidDao: LidDao) {
 
+    val leden:LiveData<List<Lid>> = lidDao.getAll()
 
-    constructor(application: Application){
-        val lidDatabase = LidDatabase.getInstance(application)
-        lidDao = lidDatabase.lidDao()
-        leden = lidDao.getAll()
-    }
 
     @WorkerThread
     fun insert(lid:Lid){
@@ -36,8 +30,4 @@ class LidRepository {
         lidDao.deleteAll()
     }
 
-    @WorkerThread
-    fun getAll():LiveData<List<Lid>>{
-       return lidDao.getAll()
-    }
 }
