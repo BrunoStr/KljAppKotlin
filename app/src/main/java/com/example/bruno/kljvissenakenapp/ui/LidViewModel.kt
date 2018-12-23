@@ -6,6 +6,7 @@ import com.example.bruno.kljvissenakenapp.App
 import com.example.bruno.kljvissenakenapp.data.LidRepository
 import com.example.bruno.kljvissenakenapp.models.Lid
 import org.jetbrains.anko.doAsync
+import javax.inject.Inject
 
 class LidViewModel : ViewModel() {
 

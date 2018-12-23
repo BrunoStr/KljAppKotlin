@@ -22,6 +22,6 @@ interface LidDao {
     fun deleteAll()
 
     //Door de liveDate kunnen we observen
-    @Query("SELECT * FROM lid_table")
+    @Query("SELECT * FROM lid_table ORDER BY naam ASC")
     fun getAll():LiveData<List<Lid>>
 }

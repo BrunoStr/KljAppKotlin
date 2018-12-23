@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.bruno.kljvissenakenapp.models.Lid
+import org.jetbrains.anko.doAsync
 
 @Database(entities = [Lid::class],version = 1)
 abstract class LidDatabase:RoomDatabase() {
@@ -26,14 +28,28 @@ abstract class LidDatabase:RoomDatabase() {
                 val instance = Room.databaseBuilder (
                     context.applicationContext,
                     LidDatabase::class.java,
-                    " lid_database "
-                ). build ()
+                    "Lid_database"
+                ).addCallback(object : RoomDatabase.Callback(){
+                    override fun onOpen(db: SupportSQLiteDatabase) {
+                        super.onOpen(db)
+                          doAsync {
+                              populateDatabase(INSTANCE!!.lidDao())
+                          }
+                    }
+                }).build()
 
                 INSTANCE = instance
                 return instance
-
             }
 
+        }
+
+        fun populateDatabase(lidDao: LidDao) {
+
+            var lid = Lid(1,"Bruno",20.0,"Voor kerstmarkt")
+            lidDao.insert(lid)
+            lid = Lid(2,"Jan", 30.0,"Voor Kamp")
+            lidDao.insert(lid)
         }
     }
 }

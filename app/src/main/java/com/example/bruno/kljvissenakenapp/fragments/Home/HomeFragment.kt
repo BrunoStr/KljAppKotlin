@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.*
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.beust.klaxon.Klaxon
 import com.example.bruno.kljvissenakenapp.activities.MainActivity
@@ -32,6 +33,15 @@ class HomeFragment: androidx.fragment.app.Fragment(){
     //Deze methode is het equivalent van de OnCreate() methode in een activity
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lidViewModel = ViewModelProviders.of(activity!!).get(LidViewModel::class.java)
+        lidViewModel.getAll().observe(this, Observer {leden ->
+
+        println("JE LEDEN ZIJN: ")
+        println(leden[0].naam)
+        println(leden[1].naam)
+
+        })
 
         sharedPrefs = activity?.getSharedPreferences("weerPref", MODE_PRIVATE)
 

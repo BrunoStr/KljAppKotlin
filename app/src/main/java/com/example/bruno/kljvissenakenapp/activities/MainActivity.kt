@@ -22,14 +22,10 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    lateinit var lidViewModel:LidViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        lidViewModel = ViewModelProviders.of(this).get(LidViewModel::class.java)
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar,
