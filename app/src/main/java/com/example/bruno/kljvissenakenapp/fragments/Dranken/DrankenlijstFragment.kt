@@ -1,17 +1,24 @@
 package com.example.bruno.kljvissenakenapp.fragments.Dranken
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bruno.kljvissenakenapp.R
 import com.example.bruno.kljvissenakenapp.adapters.LidAdapter
+import com.example.bruno.kljvissenakenapp.dialog.AddLidDialog
 import com.example.bruno.kljvissenakenapp.ui.LidViewModel
+import kotlinx.android.synthetic.main.dialog_add_lid.*
 import kotlinx.android.synthetic.main.fragment_drankenlijst.*
 
 class DrankenlijstFragment: androidx.fragment.app.Fragment(){
@@ -39,6 +46,18 @@ class DrankenlijstFragment: androidx.fragment.app.Fragment(){
             adapter.setLeden(leden)
 
         })
+
+        addLidBtn.setOnClickListener {
+            println("Floating button clicked...")
+            openDialog()
+        }
+
+    }
+
+    fun openDialog(){
+
+        val dialog = AddLidDialog()
+        dialog.show(activity!!.supportFragmentManager,"lid dialog")
 
     }
 }

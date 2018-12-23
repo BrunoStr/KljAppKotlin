@@ -14,8 +14,10 @@
     <string name="home_title_par1">Wie zijn we?</string>
     <string name="home_text_par1">
         KLJ Vissenaken is een jeugdbeweging die zich vrijwillig met de jeugd van Vissenaken en omstreken bezighoudt.
-        Wij staan in voor beweging en recreatie voor de kinderen met de bedoeling om ze samen te brengen en een leuke sfeer
-        te creëren in ons dorp! Tijdens de activiteiten houdt de leiding een oogje in het zeil en zorgt ervoor dat de leden niets
+        Wij staan in voor beweging en recreatie voor de kinderen met de bedoeling om ze samen te brengen en een leuke
+        sfeer
+        te creëren in ons dorp! Tijdens de activiteiten houdt de leiding een oogje in het zeil en zorgt ervoor dat de
+        leden niets
         te kort komen.
 
     </string>
@@ -40,5 +42,8 @@
     <!--CONTACT SCREEN STRINGS-->
     <string name="contact_title">Contact</string>
     <string name="contact_text">Welkom Op de Contact Pagina!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
