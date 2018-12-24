@@ -5,13 +5,13 @@
 
     <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="113dp" android:gravity="center_vertical"
-            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:layout_height="113dp" android:gravity="center_vertical|center"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:id="@+id/linearLayout"
-    >
+            android:layout_marginBottom="10dp" app:layout_constraintBottom_toTopOf="@+id/weerSpinner"
+            app:layout_constraintVertical_bias="0.120000005">
         <ImageView
                 android:layout_width="84dp"
                 android:layout_height="86dp" app:srcCompat="@mipmap/ic_launcher" android:id="@+id/logoImg"
@@ -30,8 +30,8 @@
                 android:textStyle="bold"/>
     </LinearLayout>
     <ScrollView
-            android:layout_width="395dp"
-            android:layout_height="318dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
@@ -56,7 +56,7 @@
     <LinearLayout
             android:orientation="vertical"
             android:background="@drawable/rounded_corner"
-            android:layout_width="395dp"
+            android:layout_width="0dp"
             android:layout_height="139dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2" app:layout_constraintStart_toStartOf="parent"
