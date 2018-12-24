@@ -80,6 +80,12 @@ class HomeFragment: androidx.fragment.app.Fragment(){
                     Fuel.get("?lang=nl&units=si&exclude=minutely,%20hourly,%20alerts,%20flags,%20daily")
                         .responseJson { request, response, result ->
 
+                            println("++++++++++")
+                            println(result.get().content)
+                            println("++++++++++")
+
+
+
                             val tussenObject = Klaxon().parse<TussenObject>(result.get().content)
                             val weer = tussenObject!!.currently
 
@@ -101,6 +107,7 @@ class HomeFragment: androidx.fragment.app.Fragment(){
                             edit?.putString("weerLuchtvochtigheid",weer.humidity.toString())
                             edit?.putString("weerIcon",img)
                             edit?.apply()
+
                         }
 
                 }

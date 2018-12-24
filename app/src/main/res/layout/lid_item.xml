@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                   android:layout_width="match_parent"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
                                    android:layout_height="wrap_content"
                                    android:layout_marginEnd="8dp"
                                    android:layout_marginStart="8dp"
@@ -15,10 +15,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
                 android:text="20.0"
+                android:gravity="center_vertical"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         />
 
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true" android:layout_marginStart="0dp"
+                android:paddingRight="10dp"
+                android:id="@+id/coinImg" app:srcCompat="@drawable/coins"/>
         <TextView
                 android:id="@+id/naamTxt"
                 android:layout_width="wrap_content"
@@ -27,7 +35,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:maxLines="1"
                 android:layout_toStartOf="@id/bedragTxt"
-                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/coinImg"
                 android:ellipsize="end"
                 />
 
@@ -36,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/naamTxt"
+                android:layout_toEndOf="@id/coinImg"
                 android:text="omschrijving"
         />
 
