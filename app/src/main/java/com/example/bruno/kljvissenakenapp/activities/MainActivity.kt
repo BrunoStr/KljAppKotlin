@@ -8,6 +8,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.bruno.kljvissenakenapp.fragments.Contact.ContactFragment
 import com.example.bruno.kljvissenakenapp.fragments.Dranken.DrankenlijstFragment
@@ -24,6 +25,8 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    var currentFragment:Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,8 +42,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        //We roepen deze methode op zodat hij standaard naar HomeFragment zal gaan bij het opstarten van de MainActivity
-        displaySelectedScreen(-1)
+        if(savedInstanceState != null){
+            currentFragment = savedInstanceState.getInt("selectedFragment")
+        }
+
+        //Standaard naar HomeFragment bij opstarten anders naar currentFragment
+        if (currentFragment==0){
+            displaySelectedScreen(-1)
+        }else{
+            displaySelectedScreen(currentFragment)
+        }
     }
 
     override fun onDestroy() {
@@ -88,6 +99,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun displaySelectedScreen(id: Int){
+
         val fragment = when(id){
             R.id.nav_home -> {
                 HomeFragment()
@@ -108,11 +120,32 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
 
+        currentFragment = id
+
         //Hier zal de correcte fragment gepusht worden naar de fragmentLayout in content_main.xml
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentLayout, fragment)
             .commit()
 
     }
+
+    //De currentFragment geven we mee zodat bij orientation change de activity weet welke fragment geselecteerd is
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putInt("selectedFragment", currentFragment)
+
+    }
+
+    //In de onCreate() methode wordt deze bundle ook doorgegeven, verschil is dat deze methode enkel opgeroepen wordt
+    //wanneer de bundle niet null is. We moeten hier dus niet checken op null values en in de onStart zouden we dit
+    //wel moeten doen
+    /*
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        savedInstanceState!!.getInt("selectedFragment")
+    }
+    */
 
 }
