@@ -6,7 +6,7 @@
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/compactCalendarView"
-            android:layout_width="0dp"
+            android:layout_width="317dp"
             android:layout_height="0dp"
             app:compactCalendarTargetHeight="250dp"
             app:compactCalendarTextSize="18sp"
@@ -21,7 +21,7 @@
     />
     <TextView
             android:layout_width="0dp"
-            android:layout_height="46dp"
+            android:layout_height="47dp"
             android:id="@+id/monthTxt"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
