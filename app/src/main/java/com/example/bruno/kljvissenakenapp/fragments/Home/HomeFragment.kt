@@ -38,7 +38,7 @@ class HomeFragment: androidx.fragment.app.Fragment(){
             (activity as MainActivity).displaySelectedScreen(R.id.nav_calendar)
         }
 
-        drankenBtn.setOnClickListener(){
+        main_drankenBtn.setOnClickListener(){
             (activity as MainActivity).displaySelectedScreen(R.id.nav_drankenLijst)
         }
 

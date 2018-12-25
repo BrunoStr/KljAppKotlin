@@ -11,21 +11,21 @@
             android:id="@+id/editNameTxt"
             android:hint="Naam"
             android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+            android:layout_height="60dp"/>
 
     <EditText
             android:id="@+id/editBedragTxt"
             android:hint="Bedrag"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-    android:layout_below="@id/editNameTxt"/>
+            android:layout_height="60dp"
+            android:layout_below="@id/editNameTxt"/>
 
     <EditText
             android:id="@+id/editOmschrijvingTxt"
             android:hint="Omschrijving"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-    android:layout_below="@id/editBedragTxt"/>
+            android:layout_height="60dp"
+            android:layout_below="@id/editBedragTxt"/>
 
 
 </RelativeLayout>
