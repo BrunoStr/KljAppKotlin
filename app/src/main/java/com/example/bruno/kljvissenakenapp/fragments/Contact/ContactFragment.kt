@@ -28,8 +28,6 @@ class ContactFragment: androidx.fragment.app.Fragment(){
 
         fbBtn.setOnClickListener {
             try {
-                //Checken of de app op het apparaat staat
-                activity!!.packageManager.getPackageInfo("com.facebook.katana", 0)
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/161627963929094"))
                 startActivity(intent)
             } catch (e: ActivityNotFoundException) {
