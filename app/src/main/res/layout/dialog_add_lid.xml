@@ -18,7 +18,7 @@
             android:hint="Bedrag"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@id/editNameTxt"/>
+            android:layout_below="@id/editNameTxt" android:inputType="numberDecimal"/>
 
     <EditText
             android:id="@+id/editOmschrijvingTxt"

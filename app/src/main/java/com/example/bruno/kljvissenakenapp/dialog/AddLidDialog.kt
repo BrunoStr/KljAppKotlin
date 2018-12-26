@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.bruno.kljvissenakenapp.R
@@ -38,7 +39,11 @@ class AddLidDialog: DialogFragment() {
                     val bedrag = view.findViewById<EditText>(R.id.editBedragTxt).text.toString()
                     val omschrijving = view.findViewById<EditText>(R.id.editOmschrijvingTxt).text.toString()
 
-                   dialogListener.applyTexts(naam, bedrag, omschrijving)
+                   if(naam.isNotEmpty() && bedrag.isNotEmpty() && omschrijving.isNotEmpty()){
+                       dialogListener.applyTexts(naam, bedrag, omschrijving)
+                   }else{
+                       Toast.makeText(activity!!.applicationContext, "Ongeldige schuld werd niet opgeslagen",Toast.LENGTH_SHORT).show()
+                   }
 
                    println("+++++++++++")
                    println("${naam},${bedrag},${omschrijving}")
@@ -50,6 +55,9 @@ class AddLidDialog: DialogFragment() {
         return builder.create()
     }
 
+    /**
+     * Deze methode zal de waarden van de dialog meegeven aan de fragment
+     */
     interface LidDialogListener{
         fun applyTexts(naam:String, bedrag:String, omschrijving:String)
     }
