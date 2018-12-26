@@ -5,7 +5,8 @@ Commissioned by Hogent for the Native apps android course.
 
 ## Getting Started
 
-If you want to run this project on your local machine you can just clone this repository and you should be fine.
+If you want to run this project on your local machine, just clone this repository. 
+After your gradle files are synchronized you should be able to run the project.
 
 ### Prerequisites
 
