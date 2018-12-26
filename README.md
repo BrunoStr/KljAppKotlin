@@ -19,7 +19,7 @@ If you want to run the written tests, just go to Android Studio and go into the 
 
 ## Built With
 
-* [Room]https://developer.android.com/topic/libraries/architecture/room) - persistence library for local persistence
+* [Room](https://developer.android.com/topic/libraries/architecture/room) - Persistence library for local persistence
 * [Dagger](https://google.github.io/dagger/) - Dependency Injection framework
 * [DarkSky](https://darksky.net/dev) - API used for local weather information
 * [Fuel](https://github.com/kittinunf/Fuel) - HTTP networking library
@@ -30,14 +30,15 @@ If you want to run the written tests, just go to Android Studio and go into the 
 
 ## Authors
 
-* **Bruno Stroobants** - *Main developer* - [Github](https://github.com/BrunoStr)
+* **Bruno Stroobants** - *Main Developer* - [Github](https://github.com/BrunoStr)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-* Our Android teachers at Hogent. Jens Buysse and Harm De Weirdt who created this course.
-* StackOverflow 
-* DarkSky API, very useful API
-* 
+* Our Android teachers at Hogent: Jens Buysse and Harm De Weirdt for creating this course and helping out when needed
+* StackOverflow
+* DarkSky, a very useful open API which I strongly recommend
+* Fellow students, helping each other through hard coding times
+* Klj Vissenaken for inspiring me to create this project
