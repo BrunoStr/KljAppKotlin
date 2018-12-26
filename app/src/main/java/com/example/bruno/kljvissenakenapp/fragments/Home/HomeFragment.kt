@@ -4,6 +4,7 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
 import com.beust.klaxon.Klaxon
 import com.example.bruno.kljvissenakenapp.activities.MainActivity
 import com.example.bruno.kljvissenakenapp.R
@@ -41,6 +42,12 @@ class HomeFragment: androidx.fragment.app.Fragment(){
         main_drankenBtn.setOnClickListener(){
             (activity as MainActivity).displaySelectedScreen(R.id.nav_drankenLijst)
         }
+
+        val contactBtn = view.findViewById<Button>(R.id.main_contactBtn)
+        contactBtn.setOnClickListener(){
+            (activity as MainActivity).displaySelectedScreen(R.id.nav_contact)
+        }
+
 
     }
 

@@ -44,12 +44,16 @@
             <Button
                     android:text="Kalender"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" tools:layout_editor_absoluteY="283dp"
+                    android:layout_height="133dp" tools:layout_editor_absoluteY="283dp"
                     tools:layout_editor_absoluteX="154dp" android:id="@+id/kalenderBtn"/>
             <Button
                     android:text="Drankenlijst"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" android:id="@+id/main_drankenBtn"/>
+                    android:layout_height="133dp" android:id="@+id/main_drankenBtn"/>
+            <Button
+                    android:text="Contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="133dp" android:id="@+id/main_contactBtn"/>
 
         </LinearLayout>
     </ScrollView>
