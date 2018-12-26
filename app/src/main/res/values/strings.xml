@@ -11,29 +11,20 @@
     <!--HOME SCREEN STRINGS-->
     <string name="home_title">Home</string>
     <string name="home_text">Welkom op de app van KLJ Vissenaken!</string>
-    <string name="home_title_par1">Wie zijn we?</string>
-    <string name="home_text_par1">
-        KLJ Vissenaken is een jeugdbeweging die zich vrijwillig met de jeugd van Vissenaken en omstreken bezighoudt.
-        Wij staan in voor beweging en recreatie voor de kinderen met de bedoeling om ze samen te brengen en een leuke
-        sfeer
-        te creëren in ons dorp! Tijdens de activiteiten houdt de leiding een oogje in het zeil en zorgt ervoor dat de
-        leden niets
-        te kort komen.
-
-    </string>
+    <string name="weer_title">Actuele weer in Vissenaken</string>
+    <string name="weer_omschrijving_placeholder">Actuele weer in Vissenaken</string>
+    <string name="weer_temperatuur_placeholder">Actuele weer in Vissenaken</string>
+    <string name="weer_luchtvocht_placeholder">Actuele weer in Vissenaken</string>
+    <string name="weer_noConnection">    Geen geldige internetverbinding...</string>
+    <string name="menu_kalender_btn">Kalender</string>
+    <string name="menu_drankenlijst_btn">Drankenlijst</string>
+    <string name="menu_contact_btn">Contact</string>
 
 
     <!--CALENDAR SCREEN STRINGS-->
     <string name="calendar_title">Kalender</string>
     <string name="calendar_text">Welkom Op de Kalender Pagina!</string>
 
-    <!--GALLERY SCREEN STRINGS-->
-    <string name="gallery_title">Gallerij</string>
-    <string name="gallery_text">Welkom Op de Gallerij Pagina!</string>
-
-    <!--SURVIVAL SCREEN STRINGS-->
-    <string name="survival_title">Survival</string>
-    <string name="survival_text">Welkom Op de Survival Pagina!</string>
 
     <!--DRANKENLIJST SCREEN STRINGS-->
     <string name="drank_title">Drankenlijst</string>
@@ -42,8 +33,5 @@
     <!--CONTACT SCREEN STRINGS-->
     <string name="contact_title">Contact</string>
     <string name="contact_text">Welkom Op de Contact Pagina!</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

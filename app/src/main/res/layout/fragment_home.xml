@@ -42,20 +42,20 @@
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
             <Button
-                    android:text="Kalender"
+                    android:text="@string/menu_kalender_btn"
                     android:backgroundTint="#cc3c27"
                     android:layout_width="match_parent"
                     android:layout_height="133dp" tools:layout_editor_absoluteY="283dp"
                     tools:layout_editor_absoluteX="154dp" android:id="@+id/kalenderBtn"
                     android:textColor="@android:color/white"/>
             <Button
-                    android:text="Drankenlijst"
+                    android:text="@string/menu_drankenlijst_btn"
                     android:backgroundTint="#cc3c27"
                     android:layout_width="match_parent"
                     android:layout_height="133dp" android:id="@+id/main_drankenBtn"
                     android:textColor="@android:color/white"/>
             <Button
-                    android:text="Contact"
+                    android:text="@string/menu_contact_btn"
                     android:backgroundTint="#cc3c27"
                     android:layout_width="match_parent"
                     android:layout_height="133dp" android:id="@+id/main_contactBtn"
@@ -75,7 +75,7 @@
             android:paddingTop="15dp" android:paddingLeft="10dp" android:paddingRight="10dp"
             android:paddingBottom="15dp">
         <TextView
-                android:text="Actuele weer in Vissenaken"
+                android:text="@string/weer_title"
                 android:layout_width="match_parent"
                 android:layout_height="34dp" android:id="@+id/textView9" android:layout_weight="1"
                 android:textAlignment="center" android:textColor="@android:color/white"
@@ -95,17 +95,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:layout_weight="1" android:gravity="center">
                 <TextView
-                        android:text="Omschrijving"
+                        android:text="@string/weer_omschrijving_placeholder"
                         android:layout_width="match_parent"
                         android:layout_height="3dp" android:id="@+id/weerDescription" android:layout_weight="1"
                         android:textAlignment="center" android:textColor="@android:color/white"/>
                 <TextView
-                        android:text="Temperatuur"
+                        android:text="@string/weer_temperatuur_placeholder"
                         android:layout_width="match_parent"
                         android:layout_height="3dp" android:id="@+id/weerTemp" android:layout_weight="1"
                         android:textAlignment="center" android:textColor="@android:color/white"/>
                 <TextView
-                        android:text="Luchtvochtigheid"
+                        android:text="@string/weer_luchtvocht_placeholder"
                         android:layout_width="match_parent"
                         android:layout_height="3dp" android:id="@+id/weerLuchtvocht" android:layout_weight="1"
                         android:textAlignment="center" android:textColor="@android:color/white"/>
@@ -124,7 +124,7 @@
             app:layout_constraintStart_toStartOf="@+id/linearLayout2" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     <TextView
-            android:text="Geen geldige internetverbinding..."
+            android:text="@string/weer_noConnection"
             android:layout_width="333dp"
             android:layout_height="17dp" android:id="@+id/noConnectionLabel" android:layout_weight="1"
             android:textAlignment="center"
