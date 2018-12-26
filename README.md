@@ -1,7 +1,7 @@
 # KLJ Vissenaken App
 
 This android application was made for Klj Vissenaken, a local youth movement located in Belgium.
-Commissioned by Hogent, Applied computer science, Native apps android.
+Commissioned by Hogent for the Native apps android course.
 
 ## Getting Started
 
