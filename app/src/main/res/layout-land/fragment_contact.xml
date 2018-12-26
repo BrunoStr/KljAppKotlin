@@ -4,7 +4,7 @@
                                                    android:layout_height="match_parent">
 
     <TextView
-            android:text="Volg onze Instagram pagina voor de leukste sfeerfoto's"
+            android:text="@string/contact_insta_text"
             android:layout_width="215dp"
             android:layout_height="38dp"
             android:id="@+id/textView3"
@@ -20,7 +20,7 @@
             android:layout_marginTop="60dp"
             app:layout_constraintTop_toTopOf="parent"/>
     <TextView
-            android:text="Like onze Facebook pagina voor de laatste updates!"
+            android:text="@string/contact_fb_text"
             android:layout_width="215dp"
             android:layout_height="38dp"
             android:id="@+id/textView" android:layout_marginTop="16dp"
@@ -29,7 +29,7 @@
             android:layout_marginStart="78dp" android:textAlignment="center"
     />
     <Button
-            android:text="Ontdek onze Facebook pagina"
+            android:text="@string/contact_fb_btn"
             android:layout_width="242dp"
             android:backgroundTint="#9cc24c"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_marginStart="48dp"
             android:textColor="@android:color/white"/>
     <Button
-            android:text="Ontdek onze Instagram pagina"
+            android:text="@string/contact_insta_btn"
             android:layout_width="242dp"
             android:backgroundTint="#9cc24c"
             android:layout_height="wrap_content"
