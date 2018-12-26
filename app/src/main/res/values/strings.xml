@@ -23,7 +23,7 @@
 
     <!--CALENDAR SCREEN STRINGS-->
     <string name="calendar_title">Kalender</string>
-    <string name="calendar_text">Welkom Op de Kalender Pagina!</string>
+    <string name="calendar_maand_placeholder">Maand</string>
 
 
     <!--DRANKENLIJST SCREEN STRINGS-->
