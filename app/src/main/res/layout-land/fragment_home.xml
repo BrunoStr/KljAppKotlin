@@ -26,18 +26,24 @@
                                   android:orientation="vertical">
                         <Button
                                 android:text="Kalender"
+                                android:backgroundTint="#cc3c27"
                                 android:layout_width="match_parent"
                                 android:layout_height="133dp" tools:layout_editor_absoluteY="283dp"
-                                tools:layout_editor_absoluteX="154dp" android:id="@+id/kalenderBtn"/>
+                                tools:layout_editor_absoluteX="154dp" android:id="@+id/kalenderBtn"
+                                android:textColor="@android:color/white"/>
 
                         <Button
                                 android:text="Drankenlijst"
+                                android:backgroundTint="#cc3c27"
                                 android:layout_width="match_parent"
-                                android:layout_height="133dp" android:id="@+id/main_drankenBtn"/>
+                                android:layout_height="133dp" android:id="@+id/main_drankenBtn"
+                                android:textColor="@android:color/white"/>
                         <Button
                                 android:text="Contact"
+                                android:backgroundTint="#cc3c27"
                                 android:layout_width="match_parent"
-                                android:layout_height="133dp" android:id="@+id/main_contactBtn"/>
+                                android:layout_height="133dp" android:id="@+id/main_contactBtn"
+                                android:textColor="@android:color/white"/>
                     </LinearLayout>
                 </ScrollView>
                 <LinearLayout

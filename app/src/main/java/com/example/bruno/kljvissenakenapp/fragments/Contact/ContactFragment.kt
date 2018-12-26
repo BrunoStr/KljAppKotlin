@@ -44,16 +44,14 @@ class ContactFragment: androidx.fragment.app.Fragment(){
         }
 
         instaBtn.setOnClickListener {
-            val uri = Uri.parse("http://instagram.com/_u/klj_vissenaken")
-
-            val i = Intent(Intent.ACTION_VIEW, uri)
-
-            i.setPackage("com.instagram.android")
-
             try {
-                startActivity(i)
+                val uri = Uri.parse("http://instagram.com/_u/klj_vissenaken")
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                intent.setPackage("com.instagram.android")
+                startActivity(intent)
             } catch (e: ActivityNotFoundException) {
 
+                //Als app niet op apparaat staat, open in browser
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
