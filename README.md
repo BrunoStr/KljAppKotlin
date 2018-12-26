@@ -27,6 +27,8 @@ If you want to run the written tests, just go to Android Studio and go into the 
 * [Anko](https://github.com/Kotlin/anko) - Kotlin library for making Android application development faster and easier 
 * [Klaxon](https://github.com/cbeust/klaxon) -  Library to parse JSON in Kotlin.
 * [EasySplashScreen](https://github.com/pantrif/EasySplashScreen) - Library for making Splashscreens
+* [Espresso](https://developer.android.com/training/testing/espresso/) - Testing framework
+* [CompactCalendarView](https://github.com/SundeepK/CompactCalendarView) - Library for implementing CalendarViews
 
 
 ## Authors
