@@ -37,7 +37,7 @@
             android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="8dp" app:layout_constraintHorizontal_bias="0.0"
-            android:id="@+id/scrollView2" android:layout_marginTop="8dp"
+            android:id="@+id/main_menu_scrollview" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
@@ -46,11 +46,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp" tools:layout_editor_absoluteY="283dp"
                     tools:layout_editor_absoluteX="154dp" android:id="@+id/kalenderBtn"/>
-
             <Button
                     android:text="Drankenlijst"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" android:id="@+id/drankenBtn"/>
+                    android:layout_height="200dp" android:id="@+id/main_drankenBtn"/>
+
         </LinearLayout>
     </ScrollView>
     <LinearLayout
@@ -59,7 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="139dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/scrollView2" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/main_menu_scrollview" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:visibility="visible" android:id="@+id/linearLayout2"
             android:paddingTop="15dp" android:paddingLeft="10dp" android:paddingRight="10dp"

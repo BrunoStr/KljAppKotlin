@@ -5,7 +5,7 @@
 
     <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" android:id="@+id/main_menu_scroller">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
                         android:layout_marginStart="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         android:layout_marginBottom="8dp" app:layout_constraintHorizontal_bias="0.0"
-                        android:id="@+id/scrollView2" android:layout_marginTop="8dp"
+                        android:id="@+id/main_menu_scrollview" android:layout_marginTop="8dp"
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                                   android:orientation="vertical">
@@ -33,7 +33,7 @@
                         <Button
                                 android:text="Drankenlijst"
                                 android:layout_width="match_parent"
-                                android:layout_height="200dp" android:id="@+id/drankenBtn"/>
+                                android:layout_height="200dp" android:id="@+id/main_drankenBtn"/>
                     </LinearLayout>
                 </ScrollView>
                 <LinearLayout
@@ -42,7 +42,7 @@
                         android:layout_width="0dp"
                         android:layout_height="139dp" android:layout_marginTop="8dp"
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout" android:layout_marginBottom="8dp"
-                        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+                        app:layout_constraintBottom_toTopOf="@+id/main_menu_scrollview"
                         app:layout_constraintStart_toStartOf="parent"
                         android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginEnd="8dp"
