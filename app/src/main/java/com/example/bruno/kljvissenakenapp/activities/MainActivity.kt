@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+        nav_view.setCheckedItem(R.id.nav_home)
 
         if(savedInstanceState != null){
             currentFragment = savedInstanceState.getInt("selectedFragment")
@@ -99,7 +100,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun displaySelectedScreen(id: Int){
-
+        nav_view.setCheckedItem(id)
         val fragment = when(id){
             R.id.nav_home -> {
                 HomeFragment()
