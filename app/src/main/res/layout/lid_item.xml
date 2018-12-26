@@ -16,7 +16,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
-                android:text="20.0"
+                android:text="@string/lid_bedrag"
                 android:gravity="center_vertical"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         />
@@ -31,13 +31,13 @@
                 android:id="@+id/naamTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:text="@string/lid_naam"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:maxLines="1"
                 android:layout_toStartOf="@id/bedragTxt"
                 android:layout_toEndOf="@id/coinImg"
                 android:ellipsize="end"
-                />
+        />
 
         <TextView
                 android:id="@+id/omschrijvingTxt"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/naamTxt"
                 android:layout_toEndOf="@id/coinImg"
-                android:text="omschrijving"
+                android:text="@string/lid_omschrijving"
         />
 
     </RelativeLayout>
