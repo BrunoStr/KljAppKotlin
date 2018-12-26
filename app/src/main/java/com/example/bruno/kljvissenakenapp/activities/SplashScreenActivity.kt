@@ -7,6 +7,10 @@ import com.example.bruno.kljvissenakenapp.R
 import gr.net.maroulis.library.EasySplashScreen
 import kotlinx.android.synthetic.main.app_bar_main.*
 
+/**
+ * Klasse voor het opstellen van het launchscreen. Gebruik gemaakt van de EasySplashScreen library
+ *
+ */
 class SplashScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

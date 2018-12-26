@@ -16,6 +16,9 @@ abstract class LidDatabase:RoomDatabase() {
         @Volatile
         private var INSTANCE: LidDatabase? = null
 
+        /**
+         * Methode om instance van de database aan te maken of bestaande op te vragen
+         */
         fun getInstance(context: Context):LidDatabase{
             val tempInstance = INSTANCE
             //Als er een instance vd database bestaat, return deze
@@ -44,6 +47,9 @@ abstract class LidDatabase:RoomDatabase() {
 
         }
 
+        /**
+         * Methode om database te initializeren
+         */
         fun populateDatabase(lidDao: LidDao) {
 
             var lid = Lid(1,"Bruno",20.0,"Voor kerstmarkt")

@@ -90,6 +90,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
+    /**
+     * Methode om navigation drawer clicks te behandelen
+     * @param item Geselecteerde menuItem wordt meegegeven
+     *
+     */
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
 
@@ -99,6 +104,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    /**
+     * Methode om geselecteerde fragment weer te geven
+     * @param id Het id van het geselecteerde fragment
+     */
     fun displaySelectedScreen(id: Int){
         nav_view.setCheckedItem(id)
         val fragment = when(id){
@@ -131,6 +140,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     //De currentFragment geven we mee zodat bij orientation change de activity weet welke fragment geselecteerd is
+    /**
+     * Methode om currentFragment op te slaan. Zo kan bij configuration change de juiste fragment weergegeven worden
+     * @param outState De bundle waarin de waarden opgeslagen worden
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
