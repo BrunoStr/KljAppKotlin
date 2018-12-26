@@ -33,7 +33,7 @@
             android:layout_width="242dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#9cc24c"
-            android:id="@+id/button" android:layout_marginTop="8dp"
+            android:id="@+id/fbBtn" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:textColor="@android:color/white"/>
@@ -42,7 +42,7 @@
             android:layout_width="242dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#9cc24c"
-            android:id="@+id/button2"
+            android:id="@+id/instaBtn"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -53,5 +53,5 @@
             android:id="@+id/instaLogo"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="40dp"
-            app:layout_constraintTop_toBottomOf="@+id/button"/>
+            app:layout_constraintTop_toBottomOf="@+id/fbBtn"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
