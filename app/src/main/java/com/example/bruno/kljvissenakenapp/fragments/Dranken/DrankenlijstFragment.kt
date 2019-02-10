@@ -32,18 +32,23 @@ class DrankenlijstFragment: androidx.fragment.app.Fragment(), AddLidDialog.LidDi
 
         val recycler = view!!.findViewById(R.id.ledenRecycler) as RecyclerView
         recycler.layoutManager = LinearLayoutManager(activity!!.applicationContext)
+        //setFixedSize zorgt voor hogere efficiëntie
         recycler.setHasFixedSize(true)
 
         val adapter = LidAdapter()
         recycler.adapter = adapter
 
         lidViewModel = ViewModelProviders.of(activity!!).get(LidViewModel::class.java)
+        //observe() is een liveData method
+        //Zet lifecycleOwner (this) --> fragment wordt enkel geupdate wanneer het in de foreground is
         lidViewModel.getAll().observe(this, Observer {leden ->
 
+            //Dit wordt opgeroepen wanneer er changes plaatsvinden en de fragment is in de foreground
             adapter.setLeden(leden)
 
         })
 
+        // dragDirs:0 zegt dat we geen drag & drop gebruiken
         ItemTouchHelper(object: ItemTouchHelper.SimpleCallback(0,
             ItemTouchHelper.LEFT){
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {

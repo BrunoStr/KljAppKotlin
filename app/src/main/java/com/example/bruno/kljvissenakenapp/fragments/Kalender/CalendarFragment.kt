@@ -53,34 +53,34 @@ class CalendarFragment: androidx.fragment.app.Fragment(){
 
         //Set up an event in calendar
         //TimeinMillis: datum die omgevormd is in miliSeconden   EPOCH CONVERTER.COM
-        var event1 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("17/11/2018"),
+        var event1 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("19/01/2019"),
             Activiteit(
                 "Dropping",
                 "Maak je klaar voor een super uitdagende dropping vandaag! Lukt het jouw groep om als eerste de eindstreep de halen?",
                 "+16",
-                "17/11/2018",
+                "19/01/2019",
                 "18:00",
                 "21:00"
             )
         )
         calendar.addEvent(event1)
 
-        var event2 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("18/11/2018"),
+        var event2 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("20/01/2019"),
             Activiteit(
                 "Pleinspelen",
                 "Kom vandaag samen met je vriendjes naar de KLJ en ontdek de allerleukste spelletjes! Plezier gegarandeerd!",
                 "-12",
-                "18/11/2018",
+                "20/01/2019",
                 "14:00",
                 "18:00"
             )
         )
         calendar.addEvent(event2)
 
-        var event3 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("18/11/2018"),
+        var event3 = Event(Color.parseColor("#9cc24c"),convertDateToMillis("20/01/2019"),
             Activiteit(
                 "HoneyMoon", "Haal je beste flirttechnieken boven en schop het tot beste koppel van de avond!",
-                "+12", "18/11/2018", "17:00", "20:00"
+                "+12", "20/01/2019", "17:00", "20:00"
             )
         )
         calendar.addEvent(event3)

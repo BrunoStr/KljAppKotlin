@@ -12,6 +12,9 @@ class Connection {
 
     companion object {
 
+        /**
+         * Methode die checkt of er een geldige internetverbinding is
+         */
         fun verifyAvailableNetwork(activity: Activity):Boolean{
             val connectivityManager = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 

@@ -10,6 +10,7 @@ import javax.inject.Inject
 
 class LidViewModel : ViewModel() {
 
+    //De lidRepository wordt hier geinject door Dagger
     @Inject
     lateinit var lidRepository:LidRepository
 

@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
+        //Zet de navigationItemSelectedListener op de nav_view
         nav_view.setNavigationItemSelectedListener(this)
         nav_view.setCheckedItem(R.id.nav_home)
 
@@ -75,11 +76,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    /*
+    //Wordt niet meer gebruikt  --> geen actionbar icon meer
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
@@ -88,18 +92,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         return super.onOptionsItemSelected(item)
     }
+    */
 
 
     /**
+     * Methode van onNavigationItemSelectedListener, wordt opgeroepen wanneer nav menu item geselecteerd wordt
      * Methode om navigation drawer clicks te behandelen
      * @param item Geselecteerde menuItem wordt meegegeven
      *
      */
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-
         displaySelectedScreen(item.itemId)
 
+        //GravityCompat.START -> push object to start of its container on x-axis
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }

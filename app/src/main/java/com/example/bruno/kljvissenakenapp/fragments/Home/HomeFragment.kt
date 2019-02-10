@@ -129,6 +129,7 @@ class HomeFragment: androidx.fragment.app.Fragment(){
     }
 
 
+    /*
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater!!.inflate(R.menu.fragment_home_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -137,5 +138,6 @@ class HomeFragment: androidx.fragment.app.Fragment(){
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
+    */
 
 }

@@ -17,7 +17,7 @@ class App: Application() {
 
         component = DaggerDatabaseComponent
                         .builder()
-            .databaseModule(DatabaseModule(this))
-            .build()
+                            .databaseModule(DatabaseModule(this))
+                                .build()
     }
 }

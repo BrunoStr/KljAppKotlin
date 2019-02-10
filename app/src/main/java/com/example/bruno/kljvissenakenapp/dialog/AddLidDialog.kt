@@ -64,7 +64,7 @@ class AddLidDialog: DialogFragment() {
 
 
     override fun onAttach(context: Context) {
-
+        //throwt error wanneer drankenlijstFragment LidDialogListener niet implementeert
         try {
             dialogListener = targetFragment as LidDialogListener
         } catch (e: ClassCastException) {
@@ -72,9 +72,6 @@ class AddLidDialog: DialogFragment() {
         }
 
         super.onAttach(context)
-
-
-
     }
 
 

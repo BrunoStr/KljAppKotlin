@@ -34,6 +34,7 @@ class LidAdapter:RecyclerView.Adapter<LidViewHolder>() {
         notifyDataSetChanged()
     }
 
+    //Dient voor slide to delete, hiervoor hebben we de position nodig
     fun getLidAt(pos:Int):Lid{
         return leden.get(pos)
     }

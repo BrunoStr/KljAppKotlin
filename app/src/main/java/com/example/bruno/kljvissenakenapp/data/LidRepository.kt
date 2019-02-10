@@ -13,6 +13,7 @@ class LidRepository(private val lidDao: LidDao) {
     /**
      * Voeg nieuw lid toe aan Lid_Database
      */
+    //@WorkerThread zorgt ervoor dat de database calls async gebeuren en de main thread dus niet blocken
     @WorkerThread
     fun insert(lid:Lid){
         lidDao.insert(lid)
